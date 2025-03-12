@@ -23,3 +23,22 @@ function count_words(string_of_words) {
     }
     return count;
 }
+
+//Partie 3
+function count_words_by(string_of_words, letter) {
+
+    let count = 0; //pour compter les mots
+    insideWord = false;
+
+    for (let i = 0; i < string_of_words.length; ++i) {
+        if (string_of_words.charAt(i) !== letter) {
+            if (!insideWord) {
+                ++count;
+                insideWord = true;
+            }
+        } else {
+            insideWord = false;
+        }
+    }
+    return count;
+}
