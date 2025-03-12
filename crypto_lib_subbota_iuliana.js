@@ -121,3 +121,37 @@ function remove_strings(string_of_words, caracters) {
     return result;
 }
 
+//Partie 8
+function crypto(a_string, a_number) {
+    const alphabet = "abcdefghijklmnopqrstuvwxyz";  // Alphabet de base
+    let result = "";
+
+    for (let i = 0; i < a_string.length; i++) {
+        let char = a_string.charAt(i);
+        let isUpperCase = false;
+        
+        if (char >= 'A' && char <= 'Z') {
+            char = char.toLowerCase();  
+            isUpperCase = true;  
+        }
+        
+
+        if (alphabet.indexOf(char) !== -1) {
+            let currentIndex = alphabet.indexOf(char);
+            let newIndex = (currentIndex + a_number) % 26;
+            if (newIndex < 0) newIndex += 26;  
+            
+            let newChar = alphabet.charAt(newIndex);
+            
+            if (isUpperCase) {
+                newChar = newChar.toUpperCase();
+            }
+            
+            result += newChar;
+        } else {
+            result += char;
+        }
+    }
+
+    return result;
+}
