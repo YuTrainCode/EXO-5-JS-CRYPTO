@@ -96,3 +96,28 @@ function remove(string_of_words, caracter){
     return result;
 }
 
+//Partie 7
+function remove_strings(string_of_words, caracters) {
+    let result = "";
+
+    for (let i = 0; i < string_of_words.length; i++) {
+        let charToCheck = string_of_words.charAt(i);
+        let shouldRemove = false;
+
+        // Vérifier si charToCheck est dans caracters
+        for (let j = 0; j < caracters.length; j++) {
+            if (charToCheck === caracters.charAt(j)) {
+                shouldRemove = true;
+                break;
+            }
+        }
+
+        // Ajouter uniquement si le caractère ne doit pas être supprimé
+        if (!shouldRemove) {
+            result += charToCheck;
+        }
+    }
+
+    return result;
+}
+
