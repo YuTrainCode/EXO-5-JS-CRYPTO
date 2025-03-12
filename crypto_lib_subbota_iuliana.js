@@ -85,12 +85,14 @@ function count_consonants(string_of_words){
 //Partie 6
 function remove(string_of_words, caracter){
 
+    let result = "";
+
     for (let i = 0; i < string_of_words.length; ++i){
 
-        if(string_of_words.charAt(i) === caracter){
-            string_of_words.charAt(caracter) = i;
-            return true;
+        if(string_of_words.charAt(i) !== caracter){
+            result += string_of_words.charAt(i);
         } 
     }
-    return false;
+    return result;
 }
+
