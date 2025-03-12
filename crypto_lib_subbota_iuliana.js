@@ -68,3 +68,29 @@ function count_vowels(string_of_words) {
     }
     return counter;
 }
+
+//Partie 5
+function count_consonants(string_of_words){
+    let counter = 0;
+
+    for (let i = 0; i < string_of_words.length; ++i) {
+        if (!is_a_vowel(string_of_words.charAt(i)) && string_of_words.charAt(i) !== ' ') {
+            counter++;
+
+        }
+    }
+    return counter;
+}
+
+//Partie 6
+function remove(string_of_words, caracter){
+
+    for (let i = 0; i < string_of_words.length; ++i){
+
+        if(string_of_words.charAt(i) === caracter){
+            string_of_words.charAt(caracter) = i;
+            return true;
+        } 
+    }
+    return false;
+}
