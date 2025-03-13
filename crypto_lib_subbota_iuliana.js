@@ -165,3 +165,6 @@ function crypto(a_string, a_number) {
 
 
 //Partie 9
+function decrypt(a_string, a_number) {
+    return crypto(a_string, 26 - (a_number % 26));
+}
