@@ -123,28 +123,35 @@ function remove_strings(string_of_words, caracters) {
 
 //Partie 8
 function crypto(a_string, a_number) {
-    const alphabet = "abcdefghijklmnopqrstuvwxyz";  // Alphabet de base
+    const alphabet = "abcdefghijklmnopqrstuvwxyz";
     let result = "";
+    
+    a_number = a_number % 26;
+    if (a_number < 0) a_number += 26;
 
     for (let i = 0; i < a_string.length; i++) {
         let char = a_string.charAt(i);
         let isUpperCase = false;
         
         if (char >= 'A' && char <= 'Z') {
-            char = char.toLowerCase();  
-            isUpperCase = true;  
+            isUpperCase = true;
+            char = String.fromCharCode(char.charCodeAt(0) + 32);
         }
         
-
-        if (alphabet.indexOf(char) !== -1) {
-            let currentIndex = alphabet.indexOf(char);
-            let newIndex = (currentIndex + a_number) % 26;
-            if (newIndex < 0) newIndex += 26;  
-            
+        let index = -1;
+        for (let j = 0; j < alphabet.length; j++) {
+            if (alphabet.charAt(j) === char) {
+                index = j;
+                break;
+            }
+        }
+        
+        if (index !== -1) {
+            let newIndex = (index + a_number) % 26;
             let newChar = alphabet.charAt(newIndex);
             
             if (isUpperCase) {
-                newChar = newChar.toUpperCase();
+                newChar = String.fromCharCode(newChar.charCodeAt(0) - 32);
             }
             
             result += newChar;
@@ -152,6 +159,9 @@ function crypto(a_string, a_number) {
             result += char;
         }
     }
-
+    
     return result;
 }
+
+
+//Partie 9
