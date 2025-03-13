@@ -168,3 +168,12 @@ function crypto(a_string, a_number) {
 function decrypt(a_string, a_number) {
     return crypto(a_string, 26 - (a_number % 26));
 }
+
+//Partie 10
+function enigma(crypted_string) {
+    for (let k = 0; k < 26; k++) {
+      let candidate = decrypt(crypted_string, k);
+      console.log("Clé " + k + " : " + candidate);
+    }
+  }
+  
